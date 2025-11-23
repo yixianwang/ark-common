@@ -13,10 +13,10 @@ import org.springframework.context.annotation.Bean;
 @EnableConfigurationProperties(CommonLibProperties.class)
 public class CommonLibAutoConfiguration {
 
-    @Bean
-    @ConditionalOnMissingBean // Allows the app to override this bean if they want
-    @ConditionalOnProperty(prefix = "common.lib", name = "enabled", havingValue = "true", matchIfMissing = true)
-    public CommonService commonService(CommonLibProperties properties) {
-        return new CommonService();
-    }
+	@Bean
+	@ConditionalOnMissingBean // Allows the app to override this bean if they want
+	@ConditionalOnProperty(prefix = "common.lib", name = "enabled", havingValue = "true", matchIfMissing = true)
+	public CommonService commonService(CommonLibProperties properties) {
+		return new CommonService();
+	}
 }

@@ -1,23 +1,28 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.arkticor</groupId>
   <artifactId>common</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>common</name>
   <packaging>pom</packaging>
+  <name>common</name>
   <description>Common library</description>
-  <url/>
+  <url></url>
   <licenses>
-    <license/>
+    <license></license>
   </licenses>
   <developers>
-    <developer/>
+    <developer></developer>
   </developers>
+  <modules>
+    <module>common-core</module>
+    <module>common-spring-boot-starter</module>
+  </modules>
   <scm>
-    <connection/>
-    <developerConnection/>
-    <tag/>
-    <url/>
+    <connection></connection>
+    <developerConnection></developerConnection>
+    <tag></tag>
+    <url></url>
   </scm>
   <properties>
     <java.version>25</java.version>
@@ -42,22 +47,19 @@
         <version>2.43.0</version>
         <configuration>
           <java>
-            <!-- Use the standard Google Style (or Eclipse) -->
-            <googleJavaFormat>
-              <style>AOSP</style> <!-- AOSP style uses 4 spaces, closer to standard Java -->
-            </googleJavaFormat>
+            <!-- Palantir also failed on Java 25. Switching to Eclipse formatter which is more robust. -->
+            <eclipse>
+              <version>4.33</version>
+            </eclipse>
             <!-- Or use the exact same Eclipse config you would use in revelc -->
             <!-- <eclipse><file>${project.basedir}/eclipse-fmt.xml</file></eclipse> -->
           </java>
           <pom>
-            <sortPom></sortPom> <!-- Keeps your dependencies sorted automatically -->
+            <sortPom></sortPom>
+            <!-- Keeps your dependencies sorted automatically -->
           </pom>
         </configuration>
       </plugin>
     </plugins>
   </build>
-  <modules>
-    <module>common-core</module>
-    <module>common-spring-boot-starter</module>
-  </modules>
 </project>
