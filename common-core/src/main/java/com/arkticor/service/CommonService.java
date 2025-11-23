@@ -1,4 +1,5 @@
 package com.arkticor.service;
+import org.jspecify.annotations.Nullable;
 
 public class CommonService {
 

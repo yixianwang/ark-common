@@ -1,6 +1,6 @@
 package com.arkticor.starter.config;
 
-import com.arkticor.core.CommonService;
+import com.arkticor.service.CommonService;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
