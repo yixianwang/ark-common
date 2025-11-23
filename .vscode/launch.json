@@ -1,12 +1,12 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "java",
-            "name": "Debug SandboxApplication",
-            "request": "launch",
-            "mainClass": "com.arkticor.sandbox.SandboxApplication",
-            "projectName": "common-sandbox"
-        }
-    ]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug SandboxApplication",
+      "request": "launch",
+      "mainClass": "com.arkticor.sandbox.SandboxApplication",
+      "projectName": "common-sandbox"
+    }
+  ]
 }
