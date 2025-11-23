@@ -7,12 +7,23 @@
   <packaging>pom</packaging>
   <name>common</name>
   <description>Common library</description>
-  <url></url>
+  <url>https://github.com/yixianwang/ark-common</url>
   <licenses>
-    <license></license>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
   </licenses>
   <developers>
-    <developer></developer>
+    <developer>
+      <id>yixianwang</id>
+      <name>Yixian Wang</name>
+      <email>wangyixian.wyx@gmail.com</email>
+      <roles>
+        <role>Architect</role>
+        <role>Developer</role>
+      </roles>
+    </developer>
   </developers>
   <modules>
     <module>common-core</module>
