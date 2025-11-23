@@ -17,6 +17,7 @@
   <modules>
     <module>common-core</module>
     <module>common-spring-boot-starter</module>
+    <module>common-sandbox</module>
   </modules>
   <scm>
     <connection></connection>
