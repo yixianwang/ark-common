@@ -47,16 +47,12 @@
         <version>2.43.0</version>
         <configuration>
           <java>
-            <!-- Palantir also failed on Java 25. Switching to Eclipse formatter which is more robust. -->
             <eclipse>
               <version>4.33</version>
             </eclipse>
-            <!-- Or use the exact same Eclipse config you would use in revelc -->
-            <!-- <eclipse><file>${project.basedir}/eclipse-fmt.xml</file></eclipse> -->
           </java>
           <pom>
             <sortPom></sortPom>
-            <!-- Keeps your dependencies sorted automatically -->
           </pom>
         </configuration>
       </plugin>
