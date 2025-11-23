@@ -34,6 +34,28 @@
       </dependency>
     </dependencies>
   </dependencyManagement>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>com.diffplug.spotless</groupId>
+        <artifactId>spotless-maven-plugin</artifactId>
+        <version>2.43.0</version>
+        <configuration>
+          <java>
+            <!-- Use the standard Google Style (or Eclipse) -->
+            <googleJavaFormat>
+              <style>AOSP</style> <!-- AOSP style uses 4 spaces, closer to standard Java -->
+            </googleJavaFormat>
+            <!-- Or use the exact same Eclipse config you would use in revelc -->
+            <!-- <eclipse><file>${project.basedir}/eclipse-fmt.xml</file></eclipse> -->
+          </java>
+          <pom>
+            <sortPom></sortPom> <!-- Keeps your dependencies sorted automatically -->
+          </pom>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
   <modules>
     <module>common-core</module>
     <module>common-spring-boot-starter</module>
