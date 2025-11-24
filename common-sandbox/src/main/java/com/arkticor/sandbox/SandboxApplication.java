@@ -1,6 +1,10 @@
 package com.arkticor.sandbox;
 
 import com.arkticor.service.CommonService; // Import from your library
+
+import lombok.CustomLog;
+import lombok.RequiredArgsConstructor;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
