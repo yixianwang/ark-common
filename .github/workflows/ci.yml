@@ -17,7 +17,7 @@ jobs:
       uses: actions/setup-java@v4
       with:
         java-version: '25-ea'
-        distribution: 'oracle'
+        distribution: 'zulu'
         cache: 'maven'
 
     - name: Check Formatting
