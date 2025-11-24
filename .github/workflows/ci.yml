@@ -9,19 +9,39 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v4
-
     - name: Set up JDK 25
       uses: actions/setup-java@v4
       with:
         java-version: '25-ea'
         distribution: 'zulu'
         cache: 'maven'
+    - name: Build
+      run: ./mvnw compile
 
+  check-formatting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 25
+      uses: actions/setup-java@v4
+      with:
+        java-version: '25-ea'
+        distribution: 'zulu'
+        cache: 'maven'
     - name: Check Formatting
       run: ./mvnw spotless:check
 
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up JDK 25
+      uses: actions/setup-java@v4
+      with:
+        java-version: '25-ea'
+        distribution: 'zulu'
+        cache: 'maven'
     - name: Run Tests
       run: ./mvnw test
