@@ -22,7 +22,6 @@ public class SandboxApplication {
 	public CommandLineRunner runTest(CommonService commonService) {
 		return args -> {
 			String result = commonService.processData("Hello Debugger");
-			log.info(">>>>>>{}", "test");
 			System.out.println("Library Result: " + result);
 		};
 	}
