@@ -8,13 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class CommonLoggerFactory {
-  
-  private static final Map<Logger, CommonLogger> delegates = Collections.synchronizedMap(new HashMap<>());
-	
+
+	private static final Map<Logger, CommonLogger> delegates = Collections.synchronizedMap(new HashMap<>());
+
 	public static CommonLogger fromSlf4j(Logger delegate) {
 		return delegates.computeIfAbsent(delegate, CommonLogger::new);
 	}
-  
+
 	public static CommonLogger getLogger(Class<?> clazz) {
 		return fromSlf4j(LoggerFactory.getLogger(clazz));
 	}
@@ -22,6 +22,7 @@ public class CommonLoggerFactory {
 	public static CommonLogger getLogger(String name) {
 		return fromSlf4j(LoggerFactory.getLogger(name));
 	}
-	
-	private CommonLoggerFactory() {}
+
+	private CommonLoggerFactory() {
+	}
 }

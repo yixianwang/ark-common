@@ -8,8 +8,8 @@ import lombok.RequiredArgsConstructor;
 /**
  * A comprehensive logger wrapper around SLF4J Logger.
  * 
- * This class provides all standard logging methods (trace, debug, info, warn, error)
- * with support for parameterized messages, exceptions, and markers.
+ * This class provides all standard logging methods (trace, debug, info, warn,
+ * error) with support for parameterized messages, exceptions, and markers.
  * 
  * @see org.slf4j.Logger
  */
@@ -99,21 +99,24 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message at the TRACE level according to the specified format and argument.
+	 * Log a message at the TRACE level according to the specified format and
+	 * argument.
 	 */
 	public void trace(String format, Object arg) {
 		delegate.trace(format, arg);
 	}
 
 	/**
-	 * Log a message at the TRACE level according to the specified format and arguments.
+	 * Log a message at the TRACE level according to the specified format and
+	 * arguments.
 	 */
 	public void trace(String format, Object arg1, Object arg2) {
 		delegate.trace(format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message at the TRACE level according to the specified format and arguments.
+	 * Log a message at the TRACE level according to the specified format and
+	 * arguments.
 	 */
 	public void trace(String format, Object... arguments) {
 		delegate.trace(format, arguments);
@@ -134,28 +137,32 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message with the specific Marker at the TRACE level according to the specified format and argument.
+	 * Log a message with the specific Marker at the TRACE level according to the
+	 * specified format and argument.
 	 */
 	public void trace(Marker marker, String format, Object arg) {
 		delegate.trace(marker, format, arg);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the TRACE level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the TRACE level according to the
+	 * specified format and arguments.
 	 */
 	public void trace(Marker marker, String format, Object arg1, Object arg2) {
 		delegate.trace(marker, format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the TRACE level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the TRACE level according to the
+	 * specified format and arguments.
 	 */
 	public void trace(Marker marker, String format, Object... arguments) {
 		delegate.trace(marker, format, arguments);
 	}
 
 	/**
-	 * Log an exception (throwable) at the TRACE level with an accompanying message and a specific Marker.
+	 * Log an exception (throwable) at the TRACE level with an accompanying message
+	 * and a specific Marker.
 	 */
 	public void trace(Marker marker, String msg, Throwable t) {
 		delegate.trace(marker, msg, t);
@@ -171,21 +178,24 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message at the DEBUG level according to the specified format and argument.
+	 * Log a message at the DEBUG level according to the specified format and
+	 * argument.
 	 */
 	public void debug(String format, Object arg) {
 		delegate.debug(format, arg);
 	}
 
 	/**
-	 * Log a message at the DEBUG level according to the specified format and arguments.
+	 * Log a message at the DEBUG level according to the specified format and
+	 * arguments.
 	 */
 	public void debug(String format, Object arg1, Object arg2) {
 		delegate.debug(format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message at the DEBUG level according to the specified format and arguments.
+	 * Log a message at the DEBUG level according to the specified format and
+	 * arguments.
 	 */
 	public void debug(String format, Object... arguments) {
 		delegate.debug(format, arguments);
@@ -206,28 +216,32 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message with the specific Marker at the DEBUG level according to the specified format and argument.
+	 * Log a message with the specific Marker at the DEBUG level according to the
+	 * specified format and argument.
 	 */
 	public void debug(Marker marker, String format, Object arg) {
 		delegate.debug(marker, format, arg);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the DEBUG level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the DEBUG level according to the
+	 * specified format and arguments.
 	 */
 	public void debug(Marker marker, String format, Object arg1, Object arg2) {
 		delegate.debug(marker, format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the DEBUG level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the DEBUG level according to the
+	 * specified format and arguments.
 	 */
 	public void debug(Marker marker, String format, Object... arguments) {
 		delegate.debug(marker, format, arguments);
 	}
 
 	/**
-	 * Log an exception (throwable) at the DEBUG level with an accompanying message and a specific Marker.
+	 * Log an exception (throwable) at the DEBUG level with an accompanying message
+	 * and a specific Marker.
 	 */
 	public void debug(Marker marker, String msg, Throwable t) {
 		delegate.debug(marker, msg, t);
@@ -243,21 +257,24 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message at the INFO level according to the specified format and argument.
+	 * Log a message at the INFO level according to the specified format and
+	 * argument.
 	 */
 	public void info(String format, Object arg) {
 		delegate.info(format, arg);
 	}
 
 	/**
-	 * Log a message at the INFO level according to the specified format and arguments.
+	 * Log a message at the INFO level according to the specified format and
+	 * arguments.
 	 */
 	public void info(String format, Object arg1, Object arg2) {
 		delegate.info(format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message at the INFO level according to the specified format and arguments.
+	 * Log a message at the INFO level according to the specified format and
+	 * arguments.
 	 */
 	public void info(String format, Object... arguments) {
 		delegate.info(format, arguments);
@@ -278,28 +295,32 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message with the specific Marker at the INFO level according to the specified format and argument.
+	 * Log a message with the specific Marker at the INFO level according to the
+	 * specified format and argument.
 	 */
 	public void info(Marker marker, String format, Object arg) {
 		delegate.info(marker, format, arg);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the INFO level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the INFO level according to the
+	 * specified format and arguments.
 	 */
 	public void info(Marker marker, String format, Object arg1, Object arg2) {
 		delegate.info(marker, format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the INFO level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the INFO level according to the
+	 * specified format and arguments.
 	 */
 	public void info(Marker marker, String format, Object... arguments) {
 		delegate.info(marker, format, arguments);
 	}
 
 	/**
-	 * Log an exception (throwable) at the INFO level with an accompanying message and a specific Marker.
+	 * Log an exception (throwable) at the INFO level with an accompanying message
+	 * and a specific Marker.
 	 */
 	public void info(Marker marker, String msg, Throwable t) {
 		delegate.info(marker, msg, t);
@@ -315,21 +336,24 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message at the WARN level according to the specified format and argument.
+	 * Log a message at the WARN level according to the specified format and
+	 * argument.
 	 */
 	public void warn(String format, Object arg) {
 		delegate.warn(format, arg);
 	}
 
 	/**
-	 * Log a message at the WARN level according to the specified format and arguments.
+	 * Log a message at the WARN level according to the specified format and
+	 * arguments.
 	 */
 	public void warn(String format, Object arg1, Object arg2) {
 		delegate.warn(format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message at the WARN level according to the specified format and arguments.
+	 * Log a message at the WARN level according to the specified format and
+	 * arguments.
 	 */
 	public void warn(String format, Object... arguments) {
 		delegate.warn(format, arguments);
@@ -350,28 +374,32 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message with the specific Marker at the WARN level according to the specified format and argument.
+	 * Log a message with the specific Marker at the WARN level according to the
+	 * specified format and argument.
 	 */
 	public void warn(Marker marker, String format, Object arg) {
 		delegate.warn(marker, format, arg);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the WARN level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the WARN level according to the
+	 * specified format and arguments.
 	 */
 	public void warn(Marker marker, String format, Object arg1, Object arg2) {
 		delegate.warn(marker, format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the WARN level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the WARN level according to the
+	 * specified format and arguments.
 	 */
 	public void warn(Marker marker, String format, Object... arguments) {
 		delegate.warn(marker, format, arguments);
 	}
 
 	/**
-	 * Log an exception (throwable) at the WARN level with an accompanying message and a specific Marker.
+	 * Log an exception (throwable) at the WARN level with an accompanying message
+	 * and a specific Marker.
 	 */
 	public void warn(Marker marker, String msg, Throwable t) {
 		delegate.warn(marker, msg, t);
@@ -387,21 +415,24 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message at the ERROR level according to the specified format and argument.
+	 * Log a message at the ERROR level according to the specified format and
+	 * argument.
 	 */
 	public void error(String format, Object arg) {
 		delegate.error(format, arg);
 	}
 
 	/**
-	 * Log a message at the ERROR level according to the specified format and arguments.
+	 * Log a message at the ERROR level according to the specified format and
+	 * arguments.
 	 */
 	public void error(String format, Object arg1, Object arg2) {
 		delegate.error(format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message at the ERROR level according to the specified format and arguments.
+	 * Log a message at the ERROR level according to the specified format and
+	 * arguments.
 	 */
 	public void error(String format, Object... arguments) {
 		delegate.error(format, arguments);
@@ -422,28 +453,32 @@ public class CommonLogger {
 	}
 
 	/**
-	 * Log a message with the specific Marker at the ERROR level according to the specified format and argument.
+	 * Log a message with the specific Marker at the ERROR level according to the
+	 * specified format and argument.
 	 */
 	public void error(Marker marker, String format, Object arg) {
 		delegate.error(marker, format, arg);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the ERROR level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the ERROR level according to the
+	 * specified format and arguments.
 	 */
 	public void error(Marker marker, String format, Object arg1, Object arg2) {
 		delegate.error(marker, format, arg1, arg2);
 	}
 
 	/**
-	 * Log a message with the specific Marker at the ERROR level according to the specified format and arguments.
+	 * Log a message with the specific Marker at the ERROR level according to the
+	 * specified format and arguments.
 	 */
 	public void error(Marker marker, String format, Object... arguments) {
 		delegate.error(marker, format, arguments);
 	}
 
 	/**
-	 * Log an exception (throwable) at the ERROR level with an accompanying message and a specific Marker.
+	 * Log an exception (throwable) at the ERROR level with an accompanying message
+	 * and a specific Marker.
 	 */
 	public void error(Marker marker, String msg, Throwable t) {
 		delegate.error(marker, msg, t);
