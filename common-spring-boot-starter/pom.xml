@@ -34,7 +34,7 @@
       <artifactId>spring-boot-configuration-processor</artifactId>
       <optional>true</optional>
     </dependency>
-    
+
     <!-- Servlet API for TraceIdFilter (optional, only needed if using web) -->
     <!-- Note: If you have spring-boot-starter-web, this dependency is already included -->
     <dependency>

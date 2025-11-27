@@ -17,12 +17,14 @@ import java.io.IOException;
 import java.util.UUID;
 
 /**
- * Example Filter implementation for managing trace IDs in Spring Boot applications.
+ * Example Filter implementation for managing trace IDs in Spring Boot
+ * applications.
  * 
  * <p>
  * This filter:
  * <ul>
- * <li>Extracts trace ID from HTTP header (X-Trace-Id, X-Request-Id, or traceparent)</li>
+ * <li>Extracts trace ID from HTTP header (X-Trace-Id, X-Request-Id, or
+ * traceparent)</li>
  * <li>Generates a new UUID if no trace ID is present</li>
  * <li>Stores trace ID in MDC for logging correlation</li>
  * <li>Adds trace ID to response headers</li>
@@ -54,7 +56,7 @@ public class TraceIdFilter implements Filter {
 	/**
 	 * Standard header names for trace ID propagation
 	 */
-	private static final String[] TRACE_ID_HEADERS = { "X-Trace-Id", "X-Request-Id", "traceparent" };
+	private static final String[] TRACE_ID_HEADERS = {"X-Trace-Id", "X-Request-Id", "traceparent"};
 	private static final String RESPONSE_HEADER = "X-Trace-Id";
 
 	@Override
@@ -104,4 +106,3 @@ public class TraceIdFilter implements Filter {
 		return UUID.randomUUID().toString();
 	}
 }
-

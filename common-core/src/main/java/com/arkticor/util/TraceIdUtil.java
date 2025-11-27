@@ -7,8 +7,8 @@ import org.slf4j.MDC;
  * (MDC).
  * 
  * <p>
- * Best Practice: The traceId should be set in a Filter/Interceptor at the request
- * entry point:
+ * Best Practice: The traceId should be set in a Filter/Interceptor at the
+ * request entry point:
  * <ul>
  * <li>Extract from HTTP header (X-Trace-Id, X-Request-Id, or traceparent)</li>
  * <li>If not present, generate a new UUID</li>
@@ -20,39 +20,39 @@ import org.slf4j.MDC;
  * Example Filter implementation:
  * 
  * <pre>
- * {@code
- * @Component
- * public class TraceIdFilter implements Filter {
- *     private static final String TRACE_ID_KEY = "traceId";
- *     private static final String TRACE_ID_HEADER = "X-Trace-Id";
- *     
- *     @Override
- *     public void doFilter(ServletRequest request, ServletResponse response, 
- *                          FilterChain chain) throws IOException, ServletException {
- *         try {
- *             String traceId = extractOrGenerateTraceId((HttpServletRequest) request);
- *             MDC.put(TRACE_ID_KEY, traceId);
- *             ((HttpServletResponse) response).setHeader(TRACE_ID_HEADER, traceId);
- *             chain.doFilter(request, response);
- *         } finally {
- *             MDC.remove(TRACE_ID_KEY);
- *         }
- *     }
- *     
- *     private String extractOrGenerateTraceId(HttpServletRequest request) {
- *         String traceId = request.getHeader(TRACE_ID_HEADER);
- *         return traceId != null && !traceId.isEmpty() 
- *             ? traceId 
- *             : UUID.randomUUID().toString();
- *     }
- * }
+ * {
+ * 	&#64;code
+ * 	&#64;Component
+ * 	public class TraceIdFilter implements Filter {
+ * 		private static final String TRACE_ID_KEY = "traceId";
+ * 		private static final String TRACE_ID_HEADER = "X-Trace-Id";
+ * 
+ * 		@Override
+ * 		public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+ * 				throws IOException, ServletException {
+ * 			try {
+ * 				String traceId = extractOrGenerateTraceId((HttpServletRequest) request);
+ * 				MDC.put(TRACE_ID_KEY, traceId);
+ * 				((HttpServletResponse) response).setHeader(TRACE_ID_HEADER, traceId);
+ * 				chain.doFilter(request, response);
+ * 			} finally {
+ * 				MDC.remove(TRACE_ID_KEY);
+ * 			}
+ * 		}
+ * 
+ * 		private String extractOrGenerateTraceId(HttpServletRequest request) {
+ * 			String traceId = request.getHeader(TRACE_ID_HEADER);
+ * 			return traceId != null && !traceId.isEmpty() ? traceId : UUID.randomUUID().toString();
+ * 		}
+ * 	}
  * }
  * </pre>
  */
 public final class TraceIdUtil {
 
 	/**
-	 * MDC key for trace ID. This should match the key used in your Filter/Interceptor.
+	 * MDC key for trace ID. This should match the key used in your
+	 * Filter/Interceptor.
 	 */
 	public static final String TRACE_ID_KEY = "traceId";
 
@@ -96,4 +96,3 @@ public final class TraceIdUtil {
 		MDC.clear();
 	}
 }
-
