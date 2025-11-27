@@ -70,8 +70,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 * @return CommonResponseVO with success code
 	 */
 	public static <T> CommonResponseVO<T> success(T data, String message) {
-		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data)
-				.build();
+		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data).build();
 	}
 
 	/**
