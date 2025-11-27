@@ -8,8 +8,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 /**
  * Common response wrapper for consistent API responses across all Spring Boot
  * projects.
@@ -22,8 +20,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CommonResponseVO<T> implements Serializable {
-	private static final long serialVersionUID = 1L;
+public class CommonResponseVO<T> {
 
 	/**
 	 * Business logic response code (e.g., "SUCCESS", "VALIDATION_ERROR",
@@ -43,13 +40,17 @@ public class CommonResponseVO<T> implements Serializable {
 	private T data;
 
 	/**
-	 * Trace ID for request tracking and debugging
+	 * Trace ID for request tracking and debugging. Typically only included in error
+	 * responses to help with client-side error reporting. For success responses,
+	 * traceId is available in HTTP headers (X-Trace-Id) and server logs via MDC.
 	 */
 	private String traceId;
 
 	/**
-	 * Creates a successful response with data. Automatically includes traceId from
-	 * MDC if available.
+	 * Creates a successful response with data. TraceId is not included in success
+	 * responses by default (it's available in HTTP headers and logs). Use
+	 * {@link #success(Object, String, String)} if you need traceId in the response
+	 * body.
 	 * 
 	 * @param data
 	 *            The response data
@@ -59,13 +60,14 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> success(T data) {
 		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode())
-				.message(ResponseCode.SUCCESS.getDefaultMessage()).data(data).traceId(TraceIdUtil.getTraceId())
-				.build();
+				.message(ResponseCode.SUCCESS.getDefaultMessage()).data(data).build();
 	}
 
 	/**
-	 * Creates a successful response with data and custom message. Automatically
-	 * includes traceId from MDC if available.
+	 * Creates a successful response with data and custom message. TraceId is not
+	 * included in success responses by default (it's available in HTTP headers and
+	 * logs). Use {@link #success(Object, String, String)} if you need traceId in
+	 * the response body.
 	 * 
 	 * @param data
 	 *            The response data
@@ -77,7 +79,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> success(T data, String message) {
 		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data)
-				.traceId(TraceIdUtil.getTraceId()).build();
+				.build();
 	}
 
 	/**
