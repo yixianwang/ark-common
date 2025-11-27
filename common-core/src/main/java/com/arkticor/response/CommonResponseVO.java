@@ -25,7 +25,9 @@ public class CommonResponseVO<T> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Response code (e.g., "200", "400", "500")
+	 * Business logic response code (e.g., "SUCCESS", "VALIDATION_ERROR",
+	 * "RESOURCE_NOT_FOUND"). This is an application-level code that provides
+	 * granular error information independent of HTTP status codes.
 	 */
 	private String code;
 
