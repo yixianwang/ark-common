@@ -1,6 +1,7 @@
 package com.arkticor.response;
 
 import com.arkticor.constant.ResponseCode;
+import com.arkticor.util.TraceIdUtil;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -47,7 +48,8 @@ public class CommonResponseVO<T> implements Serializable {
 	private String traceId;
 
 	/**
-	 * Creates a successful response with data.
+	 * Creates a successful response with data. Automatically includes traceId from
+	 * MDC if available.
 	 * 
 	 * @param data
 	 *            The response data
@@ -57,11 +59,13 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> success(T data) {
 		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode())
-				.message(ResponseCode.SUCCESS.getDefaultMessage()).data(data).build();
+				.message(ResponseCode.SUCCESS.getDefaultMessage()).data(data).traceId(TraceIdUtil.getTraceId())
+				.build();
 	}
 
 	/**
-	 * Creates a successful response with data and custom message.
+	 * Creates a successful response with data and custom message. Automatically
+	 * includes traceId from MDC if available.
 	 * 
 	 * @param data
 	 *            The response data
@@ -72,7 +76,8 @@ public class CommonResponseVO<T> implements Serializable {
 	 * @return CommonResponseVO with success code
 	 */
 	public static <T> CommonResponseVO<T> success(T data, String message) {
-		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data).build();
+		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data)
+				.traceId(TraceIdUtil.getTraceId()).build();
 	}
 
 	/**
@@ -94,7 +99,8 @@ public class CommonResponseVO<T> implements Serializable {
 	}
 
 	/**
-	 * Creates an error response with a response code.
+	 * Creates an error response with a response code. Automatically includes
+	 * traceId from MDC if available.
 	 * 
 	 * @param responseCode
 	 *            The response code enum
@@ -104,11 +110,12 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode) {
 		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(responseCode.getDefaultMessage())
-				.build();
+				.traceId(TraceIdUtil.getTraceId()).build();
 	}
 
 	/**
 	 * Creates an error response with a response code and custom message.
+	 * Automatically includes traceId from MDC if available.
 	 * 
 	 * @param responseCode
 	 *            The response code enum
@@ -119,7 +126,8 @@ public class CommonResponseVO<T> implements Serializable {
 	 * @return CommonResponseVO with error code
 	 */
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode, String message) {
-		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).build();
+		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message)
+				.traceId(TraceIdUtil.getTraceId()).build();
 	}
 
 	/**
@@ -141,14 +149,15 @@ public class CommonResponseVO<T> implements Serializable {
 
 	/**
 	 * Creates an error response with a response code, custom message, traceId, and
-	 * error data.
+	 * error data. If traceId is null, automatically includes traceId from MDC if
+	 * available.
 	 * 
 	 * @param responseCode
 	 *            The response code enum
 	 * @param message
 	 *            Custom error message
 	 * @param traceId
-	 *            Trace ID for request tracking
+	 *            Trace ID for request tracking (if null, will use MDC traceId)
 	 * @param errorData
 	 *            Additional error details
 	 * @param <T>
@@ -157,7 +166,8 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode, String message, String traceId,
 			T errorData) {
-		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).traceId(traceId)
+		String finalTraceId = traceId != null ? traceId : TraceIdUtil.getTraceId();
+		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).traceId(finalTraceId)
 				.data(errorData).build();
 	}
 }

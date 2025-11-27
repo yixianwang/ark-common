@@ -34,6 +34,14 @@
       <artifactId>spring-boot-configuration-processor</artifactId>
       <optional>true</optional>
     </dependency>
+    
+    <!-- Servlet API for TraceIdFilter (optional, only needed if using web) -->
+    <!-- Note: If you have spring-boot-starter-web, this dependency is already included -->
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <optional>true</optional>
+    </dependency>
 
     <dependency>
       <groupId>junit</groupId>
