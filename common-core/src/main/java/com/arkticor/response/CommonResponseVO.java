@@ -1,13 +1,13 @@
 package com.arkticor.response;
 
 import com.arkticor.constant.ResponseCode;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
 /**
  * Common response wrapper for consistent API responses across all Spring Boot
@@ -20,6 +20,7 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CommonResponseVO<T> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -44,12 +45,6 @@ public class CommonResponseVO<T> implements Serializable {
 	private String traceId;
 
 	/**
-	 * Timestamp when the response was created
-	 */
-	@Builder.Default
-	private LocalDateTime timestamp = LocalDateTime.now();
-
-	/**
 	 * Creates a successful response with data.
 	 * 
 	 * @param data
@@ -60,7 +55,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> success(T data) {
 		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode())
-				.message(ResponseCode.SUCCESS.getDefaultMessage()).data(data).timestamp(LocalDateTime.now()).build();
+				.message(ResponseCode.SUCCESS.getDefaultMessage()).data(data).build();
 	}
 
 	/**
@@ -76,7 +71,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> success(T data, String message) {
 		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data)
-				.timestamp(LocalDateTime.now()).build();
+				.build();
 	}
 
 	/**
@@ -94,7 +89,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> success(T data, String message, String traceId) {
 		return CommonResponseVO.<T>builder().code(ResponseCode.SUCCESS.getCode()).message(message).data(data)
-				.traceId(traceId).timestamp(LocalDateTime.now()).build();
+				.traceId(traceId).build();
 	}
 
 	/**
@@ -108,7 +103,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 */
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode) {
 		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(responseCode.getDefaultMessage())
-				.timestamp(LocalDateTime.now()).build();
+				.build();
 	}
 
 	/**
@@ -123,8 +118,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 * @return CommonResponseVO with error code
 	 */
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode, String message) {
-		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message)
-				.timestamp(LocalDateTime.now()).build();
+		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).build();
 	}
 
 	/**
@@ -141,8 +135,7 @@ public class CommonResponseVO<T> implements Serializable {
 	 * @return CommonResponseVO with error code
 	 */
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode, String message, String traceId) {
-		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).traceId(traceId)
-				.timestamp(LocalDateTime.now()).build();
+		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).traceId(traceId).build();
 	}
 
 	/**
@@ -164,6 +157,6 @@ public class CommonResponseVO<T> implements Serializable {
 	public static <T> CommonResponseVO<T> error(ResponseCode responseCode, String message, String traceId,
 			T errorData) {
 		return CommonResponseVO.<T>builder().code(responseCode.getCode()).message(message).traceId(traceId)
-				.data(errorData).timestamp(LocalDateTime.now()).build();
+				.data(errorData).build();
 	}
 }
